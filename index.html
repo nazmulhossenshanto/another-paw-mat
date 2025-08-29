@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Paw Mat</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
     <!-- tailwind css cdn -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
@@ -17,19 +22,32 @@
     ></section>
     <!-- main secction -->
     <div>
+      <!-- sorted section -->
+       <div class="flex justify-between items-center my-8">
+        <h3>Sorted Data</h3>
+        <button class="btn cursor-pointer">Sort by Price</button>
+       </div>
       <!-- all pet container -->
       <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
         <!-- card section -->
-        <div class="col-span-3 bg-red-500">
+        <div class="col-span-3">
           <!-- spinner -->
-           <div></div>
-           <!-- cards -->
-           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- dynamic pet cards here -->
-           </div>
+          <div id="loader" class="hidden flex items-center justify-center relative">
+            <span class="loading loading-spinner h-10 w-14 text-warning"
+              ></span>
+              <img class="absolute" src="./images/logo.webp" alt=""
+            />
           </div>
+          <!-- cards -->
+          <div
+            id="all-pet-container"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            <!-- dynamic pet cards here -->
+          </div>
+        </div>
         <!-- image section -->
-        <div class="col-span-1 bg-blue-500">hi</div>
+        <div class="col-span-1">hi</div>
       </div>
     </div>
 
@@ -66,6 +84,7 @@
       </form>
     </dialog>
     <!-- js script -->
+     <script src="./utilities.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

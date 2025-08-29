@@ -8,9 +8,26 @@ const loadCategory = async () => {
 };
 // load all pets
 const loadAllPet = async ()=>{
+  loadSpinner(true)
     const res = await fetch('https://openapi.programming-hero.com/api/peddy/pets');
     const data = await res.json();
-    console.log(data.pets);
+    setTimeout(() => {
+      displayAllPets(data.pets);
+      loadSpinner(false)
+    }, 2000);
+}
+const displayAllPets = async (pets)=>{
+  console.log(pets);
+  const allPetsContainer = document.getElementById('all-pet-container');
+  pets.forEach( (pet) =>{
+    const div = document.createElement("div");
+    div.classList.add('flex', 'flex-col', 'gap-2', 'p-4', 'border', 'rounded-xl', 'font-bold');
+    div.innerHTML = `
+    <img class="h-36 w-full rounded-lg border" src="${pet.image}" alt="">
+    `
+    allPetsContainer.appendChild(div);
+  })
+
 }
 // display categories
 const displayCategory = (data) => {
